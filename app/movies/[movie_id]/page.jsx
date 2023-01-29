@@ -23,6 +23,7 @@ export default async function page({ params }) {
                 alt=""
                 aria-hidden="true"
                 src={GetImage(movie.backdrop_path)}
+                className="rounded-lg sm:flex hidden"
               />
             </span>
             <img
@@ -30,7 +31,7 @@ export default async function page({ params }) {
               src={GetImage(movie.poster_path)}
               decoding="async"
               data-nimg="intrinsic"
-              className="rounded-lg"
+              className="rounded-lg mt-5"
             />
           </span>
         </section>
@@ -95,11 +96,15 @@ export default async function page({ params }) {
           <div className="mb-6">
             <h3 className="mb-2 md:text-lg">categories</h3>
             <ul className="flex flex-wrap text-xs font-light md:text-sm">
-              {movie.genres.map((category, index) => (
-                <li className="mr-2 mb-2 flex items-center justify-center rounded-md border border-zinc-800 py-px px-2 text-center font-medium bg-zinc-900">
-                  {category.name}
-                </li>
-              ))}
+              {movie.genres &&
+                movie.genres.map((category, index) => (
+                  <li
+                    key={index}
+                    className="mr-2 mb-2 flex items-center justify-center rounded-md border border-zinc-800 py-px px-2 text-center font-medium bg-zinc-900"
+                  >
+                    {category.name}
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="mb-6">
@@ -115,8 +120,10 @@ export default async function page({ params }) {
               target="_blank"
               rel="noreferrer"
             >
-              <p>See Movie in IMDB</p>
-              <BiLink />
+              <div>
+                <p>See Movie in IMDB</p>
+                <BiLink />
+              </div>
             </Link>
           </div>
         </section>

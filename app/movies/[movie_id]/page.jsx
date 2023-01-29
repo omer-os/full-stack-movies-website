@@ -46,13 +46,14 @@ export default async function page({ params }) {
             <h1 className="mb-1 mt-3 text-3xl font-light md:mb-3 md:text-5xl">
               {movie.original_title}
             </h1>
-            {movie.production_companies.map((company, index) => (
-              <div key={index} className="flex gap-5">
-                <h2 className="text-xs mx-auto sm:mx-0  font-light text-app-placeholder sm:text-sm md:text-lg">
-                  {company.name}
-                </h2>
-              </div>
-            ))}
+            {movie.production_companies &&
+              movie.production_companies.map((company, index) => (
+                <div key={index} className="flex gap-5">
+                  <h2 className="text-xs mx-auto sm:mx-0  font-light text-app-placeholder sm:text-sm md:text-lg">
+                    {company.name}
+                  </h2>
+                </div>
+              ))}
           </div>
           <div className="mb-6 flex flex-col items-center text-center md:flex-row md:items-center md:text-left">
             <p className="mb-2 text-4xl font-medium md:mr-4 md:mb-0">
@@ -82,7 +83,10 @@ export default async function page({ params }) {
             </div>
             <div>
               <p className="mb-1 text-app-placeholder">Language</p>
-              <p className="">{movie.spoken_languages[0].english_name}</p>
+              <p className="">
+                {movie.spoken_languages &&
+                  movie.spoken_languages[0].english_name}
+              </p>
             </div>
             <div>
               <p className="mb-1 text-app-placeholder">Year</p>

@@ -9,9 +9,13 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="bg-black text-white">
+      <body className="bg-black text-white max-w-screen">
         <NavBar />
         {children}
+
+        <div className="fixed bottom-0 left-0 text-xs font-bold z-50 p-1">
+          <div className="bg-zinc-900">Website under development</div>
+        </div>
       </body>
     </html>
   );

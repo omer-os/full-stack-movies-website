@@ -1,8 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { BiMenu } from "react-icons/bi";
 import NavSideBar from "./other/NavSideBar";
-import NavbarLink from "./other/NavbarLink";
+import AccountDropDown from "./dropdown/AccountDropDown";
 
 export default function NavBar() {
   return (
@@ -10,8 +9,10 @@ export default function NavBar() {
       <Link href="/" className="font-extrabold relative z-50">
         Fullstack Movies
       </Link>
-
-      <NavSideBar />
+      <div className="flex gap-2">
+        <AccountDropDown />
+        <NavSideBar />
+      </div>
     </div>
   );
 }

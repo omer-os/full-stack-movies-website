@@ -1,11 +1,14 @@
 import { MovieCard } from "@/components/movie/MovieCard";
 import { GetImage } from "@/components/other/getImage";
+import SignInButton from "@/components/other/SignInButton";
 import Link from "next/link";
 import React from "react";
 import { BiLike } from "react-icons/bi";
 import { BsCalendarDate } from "react-icons/bs";
 
-export default async function page() {
+export default async function Home() {
+  // console.log(getAllData());
+
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.MOVIES_API_KEY}`
   );
@@ -31,6 +34,8 @@ export default async function page() {
             {i}
           </div>
         ))}
+
+        <SignInButton />
       </div>
 
       <Link
@@ -70,7 +75,7 @@ export default async function page() {
         <div className="text-2xl font-bold">Top Rated Movies</div>
         <div className="flex rounded-lg overflow-y-hidden gap-5 h-max pb-2 mt-3 snap-x overflow-x-scroll snap-mandatory">
           {data.results.map((movie, index) => (
-            <div className="min-w-[15em] snap-start">
+            <div key={index} className="min-w-[15em] snap-start">
               <MovieCard key={index} movie={movie} />
             </div>
           ))}

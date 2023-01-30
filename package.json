@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-auth/firebase-adapter": "0.1.2-pr.183-76202b42.8",
     "@next/font": "13.1.6",
     "@tailwindcss/line-clamp": "^0.4.2",
     "autoprefixer": "^10.4.13",
+    "firebase": "^9.16.0",
     "framer-motion": "^8.5.4",
     "next": "13.1.6",
+    "next-auth": "^4.19.0",
     "postcss": "^8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
